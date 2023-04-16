@@ -1,0 +1,61 @@
+version: '3.9'
+services:
+  redis1:
+    image: bitnami/redis:7.0.1
+    ports:
+      - "6378:6379"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_MAXMEMORY_POLICY=allkeys-random
+    command:
+      [
+        "redis-server",
+        "--bind",
+        "redis1",
+        "--maxmemory",
+        "1mb",
+        "--maxmemory-policy",
+        "allkeys-random",
+        "--protected-mode",
+        "no"
+      ]
+
+  redis2:
+    image: bitnami/redis:7.0.1
+    ports:
+      - "6380:6379"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_MAXMEMORY_POLICY=allkeys-random
+    command:
+      [
+        "redis-server",
+        "--bind",
+        "redis2",
+        "--maxmemory",
+        "1mb",
+        "--maxmemory-policy",
+        "allkeys-random",
+        "--protected-mode",
+        "no"
+      ]
+
+  redis3:
+    image: bitnami/redis:7.0.1
+    ports:
+      - "6381:6379"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_MAXMEMORY_POLICY=allkeys-random
+    command:
+      [
+        "redis-server",
+        "--bind",
+        "redis3",
+        "--maxmemory",
+        "1mb",
+        "--maxmemory-policy",
+        "allkeys-random",
+        "--protected-mode",
+        "no"
+      ]
